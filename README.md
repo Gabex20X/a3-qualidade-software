@@ -52,8 +52,9 @@ O usuário é identificado pelo cabeçalho `X-Usuario-Id` (sem ele → 401).
 src/main/java/br/edu/financas/   código do sistema
 src/test/java/br/edu/financas/   testes JUnit 5
 .github/workflows/ci.yml          pipeline
-plano-de-teste.md · casos-de-teste.md · relatorio-testes.md   (próximas fases)
-postman/ · scripts/                                           (próximas fases)
+plano-de-teste.md                 escopo, estratégia, critérios, riscos
+casos-de-teste.md                 24 casos com técnica e rastreabilidade
+relatorio-testes.md · postman/ · scripts/   (próximas fases)
 ```
 
 ## Uso de IA
@@ -66,6 +67,8 @@ postman/ · scripts/                                           (próximas fases)
 | # | Artefato | Pedido (resumo) | O que o agente errou ou omitiu | O que o grupo fez |
 |---|---|---|---|---|
 | 1 | Código do sistema | Gerar o esqueleto da API Java a partir do pré-projeto | Gerou ~1.270 linhas no sistema, acima da faixa de 300–700 sugerida no enunciado | _a preencher após a revisão do grupo_ |
+| 2 | Plano de teste | Escrever o plano (escopo, estratégia, critérios, riscos) a partir do pré-projeto e do código | _a preencher após a revisão do grupo_ | _a preencher_ |
+| 3 | Casos de teste | Derivar 15+ casos por valor-limite, partição e tabela de decisão, com rastreabilidade | _a preencher após a revisão do grupo_ | Os resultados esperados foram conferidos contra a API rodando (36 verificações) |
 
 _Os demais registros são adicionados conforme o projeto avança. Mínimo: 5 linhas, 4 tipos de artefato e 2 erros reais._
 

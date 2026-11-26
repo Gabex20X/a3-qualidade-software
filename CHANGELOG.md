@@ -11,3 +11,5 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e
 - Primeiros testes unitarios das regras (`RegrasTest`, valores-limite).
 - Dockerfile e docker-compose.yml (servicos `app` e `testes`).
 - Workflow do GitHub Actions (build, testes, cobertura e suite no Docker).
+- Plano de teste: escopo e fora de escopo, 8 RF, regras com valores-limite, RNF mensuraveis, criterios e riscos.
+- Casos de teste: 24 casos (CT-01 a CT-24) com tecnica, prioridade e matriz de rastreabilidade.
