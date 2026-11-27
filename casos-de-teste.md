@@ -12,38 +12,38 @@ Os requisitos (RF), regras (RN, RV) e requisitos não funcionais (RNF) citados a
   - **J**: jovem, `{"nome":"Neto","idade":20}`
   - **F, F1, F2, F3**: possíveis familiares, `{"nome":"Familiar","idade":35}`
   - **X**: terceiro, sem vínculo nenhum
-- **Nível previsto:** U = unitário, I = integração, A = API (Newman). Um caso pode ser automatizado em mais de um nível.
+- **Nível:** Unit = unitário (JUnit; regras puras ou serviço com dublê Mockito) · Integ = integração (JUnit com SQLite real e HTTP real) · API = coleção Postman executada pelo Newman (Fase 4). Um caso pode ser automatizado em mais de um nível.
 - **Prioridade:** vem dos riscos do plano (seção 7). Os casos de prioridade Alta são obrigatórios para a liberação.
-- **Automação:** cada teste automatizado cita o caso no nome, por exemplo `ct06_valorNosLimites`.
+- **Automação:** cada teste automatizado cita o caso no nome, por exemplo `ct06_valor_nosLimites` (em `RegrasTest`).
 
 ## Resumo
 
 | ID | Título | Requisito | Técnica | Prioridade | Nível |
 |---|---|---|---|---|---|
-| CT-01 | Perfil IDOSO no limite de 60 anos | RF-01, RN-01 | Valor-limite | Alta | U, I, A |
-| CT-02 | Perfil JOVEM nos limites de 15 e 29 anos | RF-01, RN-01 | Valor-limite | Média | U, A |
-| CT-03 | Idade fora do intervalo 0..130 | RF-01, RN-01 | Valor-limite | Média | U, A |
-| CT-04 | Cadastro de usuário com dados inválidos | RF-01 | Partição de equivalência | Baixa | U, A |
-| CT-05 | Criar e consultar despesa válida | RF-02 | Partição de equivalência | Alta | U, I, A |
-| CT-06 | Valor da transação nos limites | RF-02, RV-01 | Valor-limite | Alta | U, A |
-| CT-07 | Valor com casas decimais ou sinal inválidos | RF-02, RV-01 | Partição de equivalência | Média | U, A |
-| CT-08 | Data da transação: hoje e amanhã | RF-02, RV-02 | Valor-limite | Média | U, A |
-| CT-09 | Combinação tipo × vencimento | RF-02, RV-02 | Tabela de decisão | Média | U |
-| CT-10 | Ciclo de vida da transação | RF-02 | Transição de estados | Alta | I, A |
-| CT-11 | Status do orçamento nos limites de 80% e 100% | RF-03, RN-02 | Valor-limite | Alta | U, I, A |
-| CT-12 | Só despesas do mês e da categoria contam no orçamento | RF-03, RN-02 | Partição de equivalência | Média | U, I |
-| CT-13 | Situação da conta nos limites de 3 dias e do vencimento | RF-04, RN-03 | Valor-limite | Alta | U, I, A |
-| CT-14 | Conta paga × data do vencimento | RF-04, RN-03 | Tabela de decisão | Média | U |
-| CT-15 | Alerta de gasto de idoso no limite de R$ 500,00 | RF-05, RN-04 | Valor-limite | Alta | U, I, A |
-| CT-16 | Alerta: perfil × tipo × valor | RF-05, RN-04 | Tabela de decisão | Média | U |
-| CT-17 | Permissões: papel do usuário × operação | RF-06, RF-08, RN-05 | Tabela de decisão | Alta | U, I, A |
-| CT-18 | Limite de 2 familiares por idoso | RF-06, RN-05 | Valor-limite | Alta | U, I, A |
-| CT-19 | Vínculo familiar inválido | RF-06 | Partição de equivalência | Média | U, A |
-| CT-20 | Identificação pelo cabeçalho X-Usuario-Id | RF-08 | Partição de equivalência | Alta | I, A |
-| CT-21 | Progresso da meta nos limites de 100% | RF-07, RN-06 | Valor-limite | Média | U, I, A |
-| CT-22 | Entradas malformadas nunca geram erro 500 | RNF-02 | Suposição de erro | Média | I, A |
-| CT-23 | Tempo de resposta da listagem | RNF-01 | Teste de desempenho | Baixa | A |
-| CT-24 | Precisão dos valores monetários | RNF-03, RV-01 | Valor-limite | Média | I |
+| CT-01 | Perfil IDOSO no limite de 60 anos | RF-01, RN-01 | Valor-limite | Alta | Unit, Integ, API |
+| CT-02 | Perfil JOVEM nos limites de 15 e 29 anos | RF-01, RN-01 | Valor-limite | Média | Unit, API |
+| CT-03 | Idade fora do intervalo 0..130 | RF-01, RN-01 | Valor-limite | Média | Unit, Integ, API |
+| CT-04 | Cadastro de usuário com dados inválidos | RF-01 | Partição de equivalência | Baixa | Unit, Integ, API |
+| CT-05 | Criar e consultar despesa válida | RF-02 | Partição de equivalência | Alta | Unit, Integ, API |
+| CT-06 | Valor da transação nos limites | RF-02, RV-01 | Valor-limite | Alta | Unit, Integ, API |
+| CT-07 | Valor com casas decimais ou sinal inválidos | RF-02, RV-01 | Partição de equivalência | Média | Unit, API |
+| CT-08 | Data da transação: hoje e amanhã | RF-02, RV-02 | Valor-limite + partição | Média | Unit, Integ, API |
+| CT-09 | Combinação tipo × vencimento | RF-02, RV-02 | Tabela de decisão | Média | Unit |
+| CT-10 | Ciclo de vida da transação | RF-02 | Transição de estados | Alta | Unit, Integ, API |
+| CT-11 | Status do orçamento nos limites de 80% e 100% | RF-03, RN-02 | Valor-limite | Alta | Unit, Integ, API |
+| CT-12 | Só despesas do mês e da categoria contam no orçamento | RF-03, RN-02 | Partição de equivalência | Média | Unit, Integ |
+| CT-13 | Situação da conta nos limites de 3 dias e do vencimento | RF-04, RN-03 | Valor-limite | Alta | Unit, Integ, API |
+| CT-14 | Conta paga × data do vencimento | RF-04, RN-03 | Tabela de decisão | Média | Unit |
+| CT-15 | Alerta de gasto de idoso no limite de R$ 500,00 | RF-05, RN-04 | Valor-limite | Alta | Unit, Integ, API |
+| CT-16 | Alerta: perfil × tipo × valor | RF-05, RN-04 | Tabela de decisão | Média | Unit |
+| CT-17 | Permissões: papel do usuário × operação | RF-06, RF-08, RN-05 | Tabela de decisão | Alta | Unit, Integ, API |
+| CT-18 | Limite de 2 familiares por idoso | RF-06, RN-05 | Valor-limite | Alta | Unit, Integ, API |
+| CT-19 | Vínculo familiar inválido | RF-06 | Partição de equivalência | Média | Unit, Integ, API |
+| CT-20 | Identificação pelo cabeçalho X-Usuario-Id | RF-08 | Partição de equivalência | Alta | Unit, Integ, API |
+| CT-21 | Progresso da meta nos limites de 100% | RF-07, RN-06 | Valor-limite | Média | Unit, Integ, API |
+| CT-22 | Entradas malformadas nunca geram erro 500 | RNF-02 | Suposição de erro | Média | Integ, API |
+| CT-23 | Tempo de resposta da listagem | RNF-01 | Teste de desempenho | Baixa | API |
+| CT-24 | Precisão dos valores monetários | RNF-03, RV-01 | Valor-limite | Média | Integ |
 
 ---
 
@@ -93,7 +93,7 @@ Os requisitos (RF), regras (RN, RV) e requisitos não funcionais (RNF) citados a
 | Pré-condição | API no ar |
 | Dados | a) sem `nome` · b) `nome` = `"   "` · c) sem `idade` · d) `idade` = `"sessenta"` (texto) · e) `idade` = 60.5 |
 | Passos | `POST /usuarios` com cada corpo; depois `GET /usuarios/999999` |
-| Resultado esperado | a) a e): 400 com campo `erro` · `GET` de usuário inexistente: 404 |
+| Resultado esperado | Todos os corpos de a) até e): 400 com o campo `erro`, e nenhum usuário criado · `GET` de usuário inexistente: 404 |
 
 ## CT-05 — Criar e consultar despesa válida
 
@@ -136,7 +136,7 @@ Os requisitos (RF), regras (RN, RV) e requisitos não funcionais (RNF) citados a
 | Campo | Conteúdo |
 |---|---|
 | Requisito | RF-02, RV-02 |
-| Técnica | Análise de valor-limite (hoje \| hoje + 1) |
+| Técnica | Análise de valor-limite (hoje \| hoje + 1) + partição de equivalência (formato de data inválido) |
 | Prioridade | Média |
 | Pré-condição | Usuário U cadastrado; hoje = 03/12/2026 |
 | Dados | a) `data` = "2026-12-03" · b) "2026-12-04" · c) "03/12/2026" (formato errado) |
@@ -195,7 +195,7 @@ Os requisitos (RF), regras (RN, RV) e requisitos não funcionais (RNF) citados a
 | Pré-condição | Usuário U com orçamento "saude" de 100.00 |
 | Dados | a) DESPESA "saude" 50.00 em 2026-12-01 (entra) · b) DESPESA "saude" 60.00 em 2026-11-30 (mês anterior) · c) RECEITA "saude" 500.00 (é receita) · d) DESPESA "lazer" 90.00 (outra categoria) |
 | Passos | Lançar a) a d) e, como U, `GET /usuarios/U/orcamentos`; depois `PUT /usuarios/U/orcamentos` com `limite` 0 |
-| Resultado esperado | `gasto` = 50.00 e `status` = `OK` (só a) conta) · limite 0 → 400 |
+| Resultado esperado | `gasto` = 50.00 e `status` = `OK` (só a) conta) · limite 0 → 400. Observação da revisão: a mensagem devolvida hoje é `"valor deve estar entre 0.01 e 1000000.00"`, que fala em "valor" quando o campo enviado é `limite` (defeito DEF-01, de baixa severidade) |
 
 ## CT-13 — Situação da conta nos limites de 3 dias e do vencimento
 
@@ -322,7 +322,7 @@ Mensagem do 403 para F: `"familiar tem acesso somente leitura"`. As tentativas r
 | Prioridade | Média |
 | Pré-condição | Usuário U com a meta M criada: `POST /usuarios/U/metas {"descricao":"Reserva","valorAlvo":100.00}` |
 | Passos | Como U, `POST /metas/M/aportes`: 1. 99.99 · 2. 0.01 · 3. 50.00; depois 4. `POST /usuarios/U/metas` com `valorAlvo` 0 · 5. aporte na meta 999999 |
-| Resultado esperado | Na criação: `percentual` 0, `EM_ANDAMENTO` · 1. `percentual` 99, `EM_ANDAMENTO` · 2. `percentual` 100, `CONCLUIDA` · 3. `valorAtual` 150.00, `percentual` 100 (teto), `CONCLUIDA` · 4. 400 · 5. 404 |
+| Resultado esperado | Na criação: `percentual` 0, `EM_ANDAMENTO` · 1. `percentual` 99, `EM_ANDAMENTO` · 2. `percentual` 100, `CONCLUIDA` · 3. `valorAtual` 150.00, `percentual` 100 (teto), `CONCLUIDA` · 4. 400 (mesma mensagem genérica de "valor" do DEF-01, embora o campo seja `valorAlvo`) · 5. 404 |
 
 ## CT-22 — Entradas malformadas nunca geram erro 500
 
@@ -385,4 +385,4 @@ Mensagem do 403 para F: `"familiar tem acesso somente leitura"`. As tentativas r
 | RNF-03 | CT-24 |
 | RNF-04 | Verificado pelo job `docker` do CI e pela execução em cópia limpa (não é um caso de teste) |
 
-Todos os requisitos e regras do plano têm pelo menos um caso. A partir da Fase 3, um script vai conferir se cada caso tem ao menos um teste automatizado com o nome `ctXX_...`.
+Todos os requisitos e regras do plano têm pelo menos um caso. O script `scripts/rastreabilidade.sh` confere se cada caso tem ao menos um teste automatizado com o nome `ctXX_...` (JUnit) ou uma requisição `[CT-XX]` na coleção Postman.
