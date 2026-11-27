@@ -3,8 +3,7 @@
 API REST de gestão financeira pessoal com regras adaptadas ao perfil do usuário (idoso, jovem ou padrão)
 e acompanhamento por familiar. O tema vem do pré-projeto do grupo; aqui o foco é **testar** o sistema.
 
-> Integrantes: _a preencher (nome e RA)_
-> Execução verde do CI: _link a preencher_
+> Integrantes: Gabriel Freitas (1292511102), João Vitor (1292518870), Eduardo Borba (), Henrique Jacques () e Matheus Siveira
 
 ## Como rodar (só precisa do Docker)
 
